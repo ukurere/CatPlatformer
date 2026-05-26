@@ -9,12 +9,8 @@ public class PoisonZone : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
-        {
-            timer = 0f;
-            Health health = col.GetComponent<Health>();
-            if (health != null) health.TakeDamage(damagePerTick);
-        }
+        // Починаємо відлік, але не наносимо шкоду одразу
+        if (col.CompareTag("Player")) timer = 0f;
     }
 
     void OnTriggerStay2D(Collider2D col)
